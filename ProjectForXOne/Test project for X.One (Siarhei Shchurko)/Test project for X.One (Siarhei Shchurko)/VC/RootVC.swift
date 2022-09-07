@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     //MARK: Var
     private var rootVM: RootVMProtocol = RootVM()
-    let queuePlayer = AVQueuePlayer()
+    private var queuePlayer = AVQueuePlayer()
     private var isSelected: Bool = false
     private var duration: Double = 0.00
     
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     //MARK: Labels
+  
     @IBOutlet private weak var passedTime: UILabel!
     @IBOutlet private weak var remainderTime: UILabel!
     @IBOutlet private weak var trackName: UILabel!
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var nextTrackButton: UIButton!
     @IBOutlet private weak var backTrackButton: UIButton!
     
+    
     //MARK: Slider
     @IBOutlet private weak var slider: UISlider!
     
@@ -51,7 +53,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         rootVM.loadTrack()
         initializePlayer()
-        swipeTrack()
+        
     }
     
     //MARK: Func for add track to playing queue
@@ -61,13 +63,13 @@ class ViewController: UIViewController {
             let item = AVPlayerItem(asset: asset)
             queuePlayer.insert(item, after: queuePlayer.items().last)
             duration = queuePlayer.currentItem?.asset.duration.seconds ?? 0.00
-            setForLabels()
-        })
+            setForLabels() })
     }
     
     //MARK: PlayerInit
     private func initializePlayer() {
         addToAllAudioToPlayer()
+        swipeTrack()
     }
     
     //MARK: SwipeToNextFunc
@@ -116,19 +118,20 @@ class ViewController: UIViewController {
     
     //MARK: Back track func (button using)
     @IBAction private func backTrack() {
-        playStopButton.isSelected = true
+     
         if rootVM.reverseAudioCollection.count >= 2 {
             let next = rootVM.reverseAudioCollection[1]
             guard let next = next else { return }
             queuePlayer.removeAllItems()
             queuePlayer.insert(next, after: queuePlayer.currentItem)
-            queuePlayer.play()
+            initializePlayer()
         }
     }
     
     
     //MARK: Play track
     @IBAction private func playButton() {
+        
         playStopButton.isSelected = !playStopButton.isSelected
         duration = queuePlayer.currentItem?.asset.duration.seconds ?? 0.00
         if queuePlayer.timeControlStatus == .playing {
@@ -143,16 +146,18 @@ class ViewController: UIViewController {
     private func setForLabels() {
         rootVM.audioCollection.forEach { track in
             //Observer
-            self.queuePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1.00, preferredTimescale: 1000), queue: DispatchQueue.main) { [self] time in
+            self.queuePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1.00, preferredTimescale: 1000), queue: DispatchQueue.main) { [ weak self ] time in
+                guard let self = self else { return }
                 
                 //Campare tracks and calculating parametrs
                 if self.queuePlayer.currentItem?.asset.duration.seconds == track.duration {
                     self.duration = self.queuePlayer.currentItem?.asset.duration.seconds ?? 0.00
                     
                     //Saved track to used "BackButton"
-                    if rootVM.reverseAudioCollection.first != queuePlayer.currentItem {
-                        rootVM.reverseAudioCollection.insert(queuePlayer.currentItem, at: 0)
+                    if self.rootVM.reverseAudioCollection.first != self.queuePlayer.currentItem {
+                        self.rootVM.reverseAudioCollection.insert(self.queuePlayer.currentItem, at: 0)
                     }
+                    
                     
                     //Set for show track time
                     let minutes = Int(time.seconds) / 60
