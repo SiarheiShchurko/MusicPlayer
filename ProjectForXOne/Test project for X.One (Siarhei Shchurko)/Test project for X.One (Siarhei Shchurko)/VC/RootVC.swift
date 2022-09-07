@@ -102,20 +102,22 @@ class ViewController: UIViewController {
     
     //MARK: Next track acton (button using)
     @IBAction private func nextTrack() {
-        if playStopButton.isSelected {
+        
+        playStopButton.isSelected = true
             if queuePlayer.currentItem == queuePlayer.items().last {
                 queuePlayer.advanceToNextItem()
                 duration = queuePlayer.currentItem?.asset.duration.seconds ?? 0.00
                 initializePlayer()
             } else {
-                
                 queuePlayer.advanceToNextItem()
                 duration = queuePlayer.currentItem?.asset.duration.seconds ?? 0.00 }
+                queuePlayer.play()
         }
-    }
+    
     
     //MARK: Back track func (button using)
     @IBAction private func backTrack() {
+        playStopButton.isSelected = true
         if rootVM.reverseAudioCollection.count >= 2 {
             let next = rootVM.reverseAudioCollection[1]
             guard let next = next else { return }
