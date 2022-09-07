@@ -14,8 +14,7 @@ class ViewController: UIViewController {
     
     //MARK: Var
     private var rootVM: RootVMProtocol = RootVM()
-    private var queuePlayer = AVQueuePlayer()
-    private var queuePlayerRevers = AVQueuePlayer()
+    let queuePlayer = AVQueuePlayer()
     private var isSelected: Bool = false
     private var duration: Double = 0.00
     
@@ -172,7 +171,6 @@ class ViewController: UIViewController {
                     self.slider.value = Float(time.seconds)
                 }
             }
-            
         }
     }
 }

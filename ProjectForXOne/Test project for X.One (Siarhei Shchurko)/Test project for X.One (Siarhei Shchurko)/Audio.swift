@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import AVFoundation
 
-
+var viewC: ViewController?
 //MARK: Enum for keys singers name
 enum KeysSingers {
-    
+
     static let IsraelKamakawiwoole = "Israel_Kamakawiwoole"
     static let TheSlowReadersClub = "The_Slow_Readers_Club"
     static let ThirtySecondstoMars = "Thirty_Seconds_to_Mars"
@@ -34,7 +34,8 @@ struct Audio {
     var artist: String
     var trackName: String
     var url: URL
-    var duration: Double
-}
+    var duration: Double 
+    }
+
 
 
