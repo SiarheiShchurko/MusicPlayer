@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -67,7 +68,7 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain">
                                                 <backgroundConfiguration key="background">
-                                                    <imageReference key="image" image="arrowtriangle.right" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="forward.end" catalog="system" symbolScale="large"/>
                                                 </backgroundConfiguration>
                                                 <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                             </buttonConfiguration>
@@ -81,7 +82,7 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain">
                                                 <backgroundConfiguration key="background" imageContentMode="scaleToFill">
-                                                    <imageReference key="image" image="arrowtriangle.left" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="backward.end" catalog="system" symbolScale="large"/>
                                                 </backgroundConfiguration>
                                             </buttonConfiguration>
                                             <connections>
@@ -124,7 +125,6 @@
                                         <constraint firstItem="eIP-R3-Tja" firstAttribute="top" secondItem="nBy-cB-2xg" secondAttribute="bottom" constant="16" id="NVz-yo-1cg"/>
                                         <constraint firstItem="nBy-cB-2xg" firstAttribute="top" secondItem="MDb-7I-Fcl" secondAttribute="bottom" constant="4" id="Oku-r1-NTk"/>
                                         <constraint firstItem="MDb-7I-Fcl" firstAttribute="centerX" secondItem="F6P-fG-bgc" secondAttribute="centerX" id="Xqq-os-KBH"/>
-                                        <constraint firstItem="6ui-yf-xza" firstAttribute="width" secondItem="MCA-Mn-qod" secondAttribute="width" multiplier="2.15" constant="-109" id="ZZg-4X-wJQ"/>
                                         <constraint firstAttribute="trailing" secondItem="eIP-R3-Tja" secondAttribute="trailing" constant="20" id="abo-wL-Qpw"/>
                                         <constraint firstItem="MDb-7I-Fcl" firstAttribute="centerY" secondItem="F6P-fG-bgc" secondAttribute="centerY" id="afx-1l-NLK"/>
                                         <constraint firstItem="tdj-xl-2eL" firstAttribute="width" secondItem="MCA-Mn-qod" secondAttribute="width" multiplier="0.4" constant="-4" id="caq-5J-XZp"/>
@@ -132,6 +132,7 @@
                                         <constraint firstItem="eIP-R3-Tja" firstAttribute="leading" secondItem="F6P-fG-bgc" secondAttribute="leading" constant="20" id="ghC-gT-LsH"/>
                                         <constraint firstItem="jTq-Pr-d3x" firstAttribute="top" secondItem="F6P-fG-bgc" secondAttribute="top" constant="100" id="hOI-7g-Bxs"/>
                                         <constraint firstItem="MCA-Mn-qod" firstAttribute="top" secondItem="eIP-R3-Tja" secondAttribute="bottom" constant="55" id="jfn-sl-hOU"/>
+                                        <constraint firstItem="6ui-yf-xza" firstAttribute="width" secondItem="tdj-xl-2eL" secondAttribute="width" id="k5k-gm-csA"/>
                                         <constraint firstAttribute="trailing" secondItem="nBy-cB-2xg" secondAttribute="trailing" constant="20" id="kDX-rX-vHl"/>
                                         <constraint firstItem="MCA-Mn-qod" firstAttribute="width" secondItem="F6P-fG-bgc" secondAttribute="width" multiplier="0.144928" id="nEA-7z-Z4q"/>
                                         <constraint firstItem="xf4-xd-etG" firstAttribute="top" secondItem="eIP-R3-Tja" secondAttribute="bottom" constant="4" id="nSv-lX-uwb"/>
@@ -179,10 +180,10 @@
     </scenes>
     <resources>
         <image name="1616568482_4-p-fioletovii-fon-na-telefon-4" width="675" height="1200"/>
-        <image name="arrowtriangle.left" catalog="system" width="128" height="113"/>
-        <image name="arrowtriangle.right" catalog="system" width="128" height="113"/>
-        <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="backward.end" catalog="system" width="128" height="120"/>
+        <image name="forward.end" catalog="system" width="128" height="120"/>
+        <image name="pause.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
